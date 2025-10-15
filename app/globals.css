@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg-gradient: radial-gradient(circle at top left, rgba(255, 31, 71, 0.25), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(0, 112, 243, 0.25), transparent 50%);
+  --card-bg: rgba(18, 20, 26, 0.78);
+  --border-glow: rgba(255, 31, 71, 0.45);
+  --surface-elevated: rgba(10, 12, 18, 0.85);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #050505 0%, #0b1020 100%);
+  color: #f4f6ff;
+  font-family: var(--font-sans, "Inter"), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-image: var(--bg-gradient);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.35;
+}
+
+.hud-blur {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.hud-panel {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+}
+
+.panel-heading {
+  font-family: var(--font-display, "Rajdhani"), "Inter", system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.neon-border {
+  position: relative;
+}
+
+.neon-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 31, 71, 0.55), rgba(0, 112, 243, 0.55));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
